@@ -11,6 +11,7 @@ class _homePageState extends State<homePage> {
   int count = 0;
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xff1A2A48),
       body: Stack(children: [
@@ -31,13 +32,16 @@ class _homePageState extends State<homePage> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 700.0, left: 30, right: 30),
+          padding: EdgeInsets.only(
+              top: size.height * 0.8,
+              left: size.width * 0.1,
+              right: size.width * 0.1),
           child: Center(
             child: Row(
               children: [
                 SizedBox(
-                  height: 50,
-                  width: 100,
+                  height: size.height * 0.05,
+                  width: size.height * 0.12,
                   child: OutlinedButton(
                     onPressed: () {
                       setState(() {
@@ -57,8 +61,8 @@ class _homePageState extends State<homePage> {
                 ),
                 Spacer(),
                 SizedBox(
-                  height: 50,
-                  width: 100,
+                  height: size.height * 0.05,
+                  width: size.height * 0.12,
                   child: OutlinedButton(
                     onPressed: () {
                       setState(() {
