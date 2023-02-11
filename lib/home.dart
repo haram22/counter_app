@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'setting.dart';
+
 class homePage extends StatefulWidget {
   const homePage({super.key});
 
@@ -32,6 +34,20 @@ class _homePageState extends State<homePage> {
           ),
         ),
         Padding(
+          padding:
+              EdgeInsets.only(top: size.height * 0.08, left: size.width * 0.85),
+          child: IconButton(
+            icon: Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => setting()));
+            },
+          ),
+        ),
+        Padding(
           padding: EdgeInsets.only(
               top: size.height * 0.8,
               left: size.width * 0.1,
@@ -43,45 +59,43 @@ class _homePageState extends State<homePage> {
                   height: size.height * 0.05,
                   width: size.height * 0.12,
                   child: OutlinedButton(
-                    onPressed: () {
-                      setState(() {
-                        count = 0;
-                      });
-                    },
-                    child: Text(
-                      "Reset",
-                      style: TextStyle(color: Color(0xff1A2A48), fontSize: 17),
-                    ),
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20)))),
-                  ),
+                      onPressed: () {
+                        setState(() {
+                          count = 0;
+                        });
+                      },
+                      child: Text(
+                        "Reset",
+                        style: TextStyle(
+                            color: Color(0xff1A2A48),
+                            fontSize: size.width * 0.05),
+                      ),
+                      style: OutlinedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))))),
                 ),
                 Spacer(),
                 SizedBox(
                   height: size.height * 0.05,
                   width: size.height * 0.12,
                   child: OutlinedButton(
-                    onPressed: () {
-                      setState(() {
-                        if (count == 0)
-                          count = 0;
-                        else
-                          count--;
-                      });
-                    },
-                    child: Text(
-                      "-",
-                      style: TextStyle(color: Color(0xff1A2A48), fontSize: 30),
-                    ),
-                    style: OutlinedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20)))),
-                  ),
+                      onPressed: () {
+                        setState(() {
+                          if (count == 0)
+                            count = 0;
+                          else
+                            count--;
+                        });
+                      },
+                      child: Icon(Icons.remove,
+                          size: 40, color: Color(0xff1A2A48)),
+                      style: OutlinedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))))),
                 ),
               ],
             ),
